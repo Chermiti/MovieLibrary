@@ -22,22 +22,23 @@ public class MovieLibraryBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MovieLibraryBackendApplication.class, args);
 	}
-	
+
 	@Bean
-	CommandLineRunner runner(MoviesServiceImpl moviesServiceImpl){
-	    return args -> {
+	CommandLineRunner runner(MoviesServiceImpl moviesServiceImpl) {
+		return args -> {
 			// read JSON and load json
 			ObjectMapper mapper = new ObjectMapper();
-			TypeReference<List<Movie>> typeReference = new TypeReference<List<Movie>>(){};
+			TypeReference<List<Movie>> typeReference = new TypeReference<List<Movie>>() {
+			};
 			InputStream inputStream = TypeReference.class.getResourceAsStream("/json/movies.json");
 			try {
-				List<Movie> movies = mapper.readValue(inputStream,typeReference);
+				List<Movie> movies = mapper.readValue(inputStream, typeReference);
 				moviesServiceImpl.createAll(movies);
 				System.out.println("Movies Saved!");
-			} catch (IOException e){
+			} catch (IOException e) {
 				System.out.println("Unable to save movies: " + e.getMessage());
 			}
-	    };
+		};
 	}
 
 }

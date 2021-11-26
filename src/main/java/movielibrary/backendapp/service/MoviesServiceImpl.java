@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import movielibrary.backendapp.Exception.ResourceNotFoundException;
 import movielibrary.backendapp.model.Movie;
 import movielibrary.backendapp.repository.MovieRepository;
+
 @Service
-public class MoviesServiceImpl implements MovieService{
-	
+public class MoviesServiceImpl implements MovieService {
+
 	@Autowired
 	private MovieRepository movieRepository;
 
@@ -23,8 +24,8 @@ public class MoviesServiceImpl implements MovieService{
 	@Override
 	public Movie updateMovie(Movie movie) {
 		Optional<Movie> getMovie = this.movieRepository.findById(movie.getId());
-		
-		if(getMovie.isPresent()) {
+
+		if (getMovie.isPresent()) {
 			Movie updatedMovie = getMovie.get();
 			updatedMovie.setId(movie.getId());
 			updatedMovie.setTitle(movie.getTitle());
@@ -33,7 +34,7 @@ public class MoviesServiceImpl implements MovieService{
 			updatedMovie.setType(movie.getType());
 			movieRepository.save(updatedMovie);
 			return updatedMovie;
-		}else {
+		} else {
 			throw new ResourceNotFoundException("Movie not found with id : " + movie.getId());
 		}
 	}
@@ -46,9 +47,9 @@ public class MoviesServiceImpl implements MovieService{
 	@Override
 	public void deleteMovie(Long id) {
 		Optional<Movie> getMovie = this.movieRepository.findById(id);
-		if(getMovie.isPresent()) {
+		if (getMovie.isPresent()) {
 			this.movieRepository.delete(getMovie.get());
-		}else {
+		} else {
 			throw new ResourceNotFoundException("Movie not found with id : " + id);
 		}
 	}
@@ -56,17 +57,17 @@ public class MoviesServiceImpl implements MovieService{
 	@Override
 	public void createAll(List<Movie> movies) {
 		movieRepository.saveAll(movies);
-		
+
 	}
 
 	@Override
 	public Movie getMovieById(Long id) {
 		// TODO Auto-generated method stub
 		Optional<Movie> getMovie = this.movieRepository.findById(id);
-		if(getMovie.isPresent()) {
+		if (getMovie.isPresent()) {
 			Movie movie = getMovie.get();
 			return movie;
-		}else {
+		} else {
 			throw new ResourceNotFoundException("Movie not found with id : " + id);
 		}
 	}

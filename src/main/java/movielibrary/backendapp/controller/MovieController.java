@@ -16,37 +16,38 @@ import movielibrary.backendapp.model.Movie;
 import movielibrary.backendapp.service.MovieService;
 
 import java.util.List;
-@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false"    )
+
+@CrossOrigin(origins = { "*" }, maxAge = 4800, allowCredentials = "false")
 @RestController
 public class MovieController {
 
 	@Autowired
 	private MovieService movieService;
-	
+
 	@GetMapping("/movies")
-	public ResponseEntity<List<Movie>> getAllMovies(){
+	public ResponseEntity<List<Movie>> getAllMovies() {
 		return ResponseEntity.ok().body(movieService.getAllMovies());
 	}
-	
+
 	@PostMapping("/movies")
-	public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
+	public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
 		return ResponseEntity.ok().body(this.movieService.createMovie(movie));
 	}
-	
+
 	@PutMapping("/movies/{id}")
-	public ResponseEntity<Movie> updateMovie(@PathVariable long id, @RequestBody Movie movie){
+	public ResponseEntity<Movie> updateMovie(@PathVariable long id, @RequestBody Movie movie) {
 		movie.setId(id);
 		return ResponseEntity.ok().body(this.movieService.updateMovie(movie));
 	}
-	
+
 	@DeleteMapping("/movies/{id}")
-	public HttpStatus deleteMovie(@PathVariable long id){
+	public HttpStatus deleteMovie(@PathVariable long id) {
 		this.movieService.deleteMovie(id);
 		return HttpStatus.OK;
 	}
-	
+
 	@GetMapping("/movies/{id}")
-	public ResponseEntity<Movie> getMovieByID(@PathVariable long id){
+	public ResponseEntity<Movie> getMovieByID(@PathVariable long id) {
 		return ResponseEntity.ok().body(this.movieService.getMovieById(id));
 	}
 }
