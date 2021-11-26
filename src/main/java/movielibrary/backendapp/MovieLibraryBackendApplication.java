@@ -1,4 +1,4 @@
-package test.backendapp;
+package movielibrary.backendapp;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -6,10 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import movielibrary.backendapp.model.Movie;
+import movielibrary.backendapp.service.MoviesServiceImpl;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import test.backendapp.service.MoviesServiceImpl;
-import test.backendapp.model.Movie;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;

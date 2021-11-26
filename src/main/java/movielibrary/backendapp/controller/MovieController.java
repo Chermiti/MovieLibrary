@@ -1,4 +1,4 @@
-package test.backendapp.controller;
+package movielibrary.backendapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import test.backendapp.model.Movie;
-import test.backendapp.service.MovieService;
+import movielibrary.backendapp.model.Movie;
+import movielibrary.backendapp.service.MovieService;
+
 import java.util.List;
 @CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false"    )
 @RestController

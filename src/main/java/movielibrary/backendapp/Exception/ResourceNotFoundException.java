@@ -1,4 +1,4 @@
-package test.backendapp.Exception;
+package movielibrary.backendapp.Exception;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 

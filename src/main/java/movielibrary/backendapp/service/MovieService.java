@@ -1,8 +1,8 @@
-package test.backendapp.service;
+package movielibrary.backendapp.service;
 
 import java.util.List;
 
-import test.backendapp.model.Movie;
+import movielibrary.backendapp.model.Movie;
 
 public interface MovieService {
 	

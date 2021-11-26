@@ -1,4 +1,4 @@
-package test.backendapp.model;
+package movielibrary.backendapp.model;
 
 import java.util.Date;
 

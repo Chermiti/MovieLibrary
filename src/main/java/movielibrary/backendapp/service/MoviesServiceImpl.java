@@ -1,4 +1,4 @@
-package test.backendapp.service;
+package movielibrary.backendapp.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import test.backendapp.Exception.ResourceNotFoundException;
-import test.backendapp.model.Movie;
-import test.backendapp.repository.MovieRepository;
+import movielibrary.backendapp.Exception.ResourceNotFoundException;
+import movielibrary.backendapp.model.Movie;
+import movielibrary.backendapp.repository.MovieRepository;
 @Service
 public class MoviesServiceImpl implements MovieService{
 	
